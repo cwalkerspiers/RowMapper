@@ -1,2 +1,0 @@
-# RowMapper
-Created with CodeSandbox
