@@ -1,3 +1,7 @@
+const areRowsValid = function areRowsValid(rows) {
+  return rows && Array.isArray(rows) && rows.length;
+};
+
 const doesBlankRowExistInRows = (rows, columns) => {
   if (!areRowsValid(rows)) {
     return false;
@@ -31,7 +35,3 @@ export default {
   doesBlankRowExistInRows,
   generateBlankRow
 };
-
-function areRowsValid(rows) {
-  return rows && Array.isArray(rows) && rows.length;
-}
