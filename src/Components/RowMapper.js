@@ -24,28 +24,27 @@ const Column = styled.div`
 `;
 
 const RowMapper = props => {
-  const rowsState = useRows(props.rows, props.columns);
+  const rowState = useRows(props.rows, props.columns);
 
   const getInputProps = function(row, column, rowIndex) {
     let { id } = column;
     return {
       value: row[id],
       onChange: e => {
-        rowsState.changeValue(rowIndex, column.id, e.target.value);
+        rowState.changeValue(rowIndex, column.id, e.target.value);
       }
     };
   };
 
   const getSelectProps = function(row, column, rowIndex) {
-    const selected = column.options.find(
+    let selected = column.options.find(
       option => option.value === row[column.id]
     );
-
     return {
-      value: selected,
+      value: selected || {},
       options: column.options,
       onChange: desiredValue => {
-        rowsState.changeValue(rowIndex, column.id, desiredValue.value);
+        rowState.changeValue(rowIndex, column.id, desiredValue.value);
       }
     };
   };
@@ -77,7 +76,7 @@ const RowMapper = props => {
         <Column>Task</Column>
         <Column>Priority</Column>
       </Row>
-      {rowsState.rows.map((row, rowIndex) => {
+      {rowState.rows.map((row, rowIndex) => {
         return (
           <Row>
             {renderColumns(
@@ -95,9 +94,9 @@ const RowMapper = props => {
 
             <RemoveButton
               onClick={() => {
-                rowsState.removeRow(rowIndex);
+                rowState.removeRow(rowIndex);
               }}
-              isLastRow={isLastRow(rowsState.rows, rowIndex)}
+              isLastRow={isLastRow(rowState.rows, rowIndex)}
             />
           </Row>
         );

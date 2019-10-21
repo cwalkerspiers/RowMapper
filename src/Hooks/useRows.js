@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import blankRowService from "/src/BlankRow/service";
+import { useState, useEffect } from "react";
+import blankRowHelper from "/src/BlankRow/helper";
 
 const useRows = (initialRows, columns) => {
   const [rows, setRows] = useState(initialRows);
 
   useEffect(() => {
-    if (blankRowService.doesBlankRowExistInRows(rows, columns)) {
+    if (blankRowHelper.doesBlankRowExistInRows(rows, columns)) {
       return;
     }
-    const newRow = blankRowService.generateBlankRow(columns);
+    const newRow = blankRowHelper.generateBlankRow(columns);
     addRow(newRow);
   });
 
