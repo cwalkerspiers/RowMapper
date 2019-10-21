@@ -1,5 +1,5 @@
 import React from "react";
-import hooks from "/src/Hooks/combined";
+import useRows from "/src/Hooks/useRows";
 import Input from "./Input";
 import Select from "./Select";
 import RemoveButton from "/src/Components/RemoveButton";
@@ -24,14 +24,14 @@ const Column = styled.div`
 `;
 
 const RowMapper = props => {
-  const useRows = hooks.useRows(props.rows, props.columns);
+  const rowsState = useRows(props.rows, props.columns);
 
   const getInputProps = function(row, column, rowIndex) {
     let { id } = column;
     return {
       value: row[id],
       onChange: e => {
-        useRows.changeValue(rowIndex, column.id, e.target.value);
+        rowsState.changeValue(rowIndex, column.id, e.target.value);
       }
     };
   };
@@ -45,7 +45,7 @@ const RowMapper = props => {
       value: selected,
       options: column.options,
       onChange: desiredValue => {
-        useRows.changeValue(rowIndex, column.id, desiredValue.value);
+        rowsState.changeValue(rowIndex, column.id, desiredValue.value);
       }
     };
   };
@@ -77,7 +77,7 @@ const RowMapper = props => {
         <Column>Task</Column>
         <Column>Priority</Column>
       </Row>
-      {useRows.rows.map((row, rowIndex) => {
+      {rowsState.rows.map((row, rowIndex) => {
         return (
           <Row>
             {renderColumns(
@@ -95,9 +95,9 @@ const RowMapper = props => {
 
             <RemoveButton
               onClick={() => {
-                useRows.removeRow(rowIndex);
+                rowsState.removeRow(rowIndex);
               }}
-              isLastRow={isLastRow(useRows.rows, rowIndex)}
+              isLastRow={isLastRow(rowsState.rows, rowIndex)}
             />
           </Row>
         );

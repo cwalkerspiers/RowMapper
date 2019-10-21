@@ -38,6 +38,4 @@ const useRows = (initialRows, columns) => {
   };
 };
 
-export default {
-  useRows
-};
+export default useRows;
