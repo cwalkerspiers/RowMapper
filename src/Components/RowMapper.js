@@ -37,7 +37,7 @@ const RowMapper = props => {
   };
 
   const getSelectProps = function(row, column, rowIndex) {
-    let selected = column.options.find(
+    const selected = column.options.find(
       option => option.value === row[column.id]
     );
     return {
