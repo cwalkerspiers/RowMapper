@@ -1,5 +1,5 @@
 import { columnIds, priorities } from "/src/constants.js";
-console.log(columnIds);
+
 const rows = [
   {
     [columnIds.task]: "Update style guide",

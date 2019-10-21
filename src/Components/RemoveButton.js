@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-// import minusIcon from "/src/assets/images/minus-18-black";
-// import img from "minus-18-black.png";
 
 const StyledButton = styled.button`
   width: 1rem;

@@ -5,14 +5,11 @@ const customStyles = {
   container: provided => ({
     ...provided,
     width: 150,
-    // height: "1.5rem"
     padding: 0
   }),
   option: provided => ({
     ...provided,
     fontWeight: "normal"
-    // padding: 10
-    // width: 500
   }),
   singleValue: provided => ({
     ...provided,

@@ -22,7 +22,6 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  // index.js to be passing in values from the data source.
   return (
     <AppContainer>
       <AppHeader>Row Mapper</AppHeader>
