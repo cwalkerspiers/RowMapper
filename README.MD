@@ -4,6 +4,8 @@
 
 This project is to demonstrate a use case of React Hooks. The RowMapper component encapsulates the functionality of the adding and removal of rows via specified user inputs.
 
+[Open In Codesandbox](https://codesandbox.io/s/github/cwalkerspiers/RowMapper)
+
 ## Technical Details
 
 - Vanilla React project
